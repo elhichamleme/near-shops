@@ -15,7 +15,7 @@ export class LoginComponent  {
   signIn(email: string, password: string){
     this.authService.signIn(email, password).subscribe(data => {
       localStorage.setItem("user", JSON.stringify(data))
-      this.router.navigate(["shops"])
+      this.router.navigate(["near-shops"])
 
     });
 

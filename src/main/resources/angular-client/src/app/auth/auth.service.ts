@@ -34,12 +34,22 @@ export class AuthService {
   }
 
    signOut(): Observable<any>{
+    localStorage.removeItem("user");
     return this.httpClient.post(this.SIGN_OUT_URL, {});
+
 
   }
 
-  get getUser(): any{
+  get user(): any{
     return JSON.parse(localStorage.getItem('user'))
 
+  }
+
+  get token(): any{
+    let user = this.user;
+    if (user == null)
+      return null
+    else
+      return user["token"];
   }
 }

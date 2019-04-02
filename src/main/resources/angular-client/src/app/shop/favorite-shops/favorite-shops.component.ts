@@ -14,7 +14,7 @@ export class FavoriteShopsComponent implements OnInit {
 
   ngOnInit() {
 
-     this.shopService.getFavoritesByUser().subscribe(data =>{
+     this.shopService.preferredShops().subscribe(data =>{
        this.favoriteShops = data
      })
 

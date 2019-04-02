@@ -1,37 +1,27 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
-import {Observable, Subject} from "rxjs";
-import {AuthService} from "../auth/auth.service";
+import { Observable } from "rxjs";
+import { AuthService } from "../auth/auth.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ShopService {
 
-  private favoriteShops: Array<any>
-  private listShops: Array<any>
+  private SHOPS_URL = "http://localhost:8090/shops";
+  private NEAR_SHOPS_URL = this.SHOPS_URL + "/near";
+  private PREFERRED_SHOPS_URL = this.SHOPS_URL + "/preferred";
 
   constructor(private httpClient: HttpClient, private auth: AuthService) { }
 
-  ngOnInit() {
 
-    this.getFavoritesByUser().subscribe(data =>{
-      this.favoriteShops = data
-    })
+  nearShops(latitude: number, longitude: number): Observable<any> {
 
-    this.getAll().subscribe(data =>{
-      this.listShops = data
-    })
-  }
-
-  getAll(): Observable<any> {
-    return this.httpClient.get('./assets/shops.json');
-    // return this.httpClient.get('http://localhost:8080/shops')
+    return this.httpClient.get(this.NEAR_SHOPS_URL+"/"+latitude+"/"+longitude);
 }
 
-  getFavoritesByUser(): Observable<any>{
-    return this.httpClient.get('./assets/favorite-shops.json');
-  //return this.httpClient.get('http://localhost:8080/users/favorite-shops/'+this.auth.user.email)
+  preferredShops(): Observable<any>{
+    return this.httpClient.get(this.PREFERRED_SHOPS_URL)
 }
 
 
