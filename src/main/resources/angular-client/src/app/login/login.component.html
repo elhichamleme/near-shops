@@ -1,0 +1,17 @@
+<div class="login-page">
+  <div class="form">
+    <div class="register-form" [hidden]="!isRegistration">
+      <input type="text" placeholder="email address" #email required autofocus />
+      <input type="password" placeholder="password" #password required/>
+
+      <button (click)="createUser(email.value, password.value)">create</button>
+      <p class="message">Already registered? <a (click)="isRegistration = !isRegistration">Sign In</a></p>
+    </div>
+    <div class="login-form" [hidden]="isRegistration">
+      <input type="text" placeholder="username" #userEmail required autofocus/>
+      <input type="password" placeholder="password" #userPassword required/>
+      <button (click)="signIn(userEmail.value, userPassword.value)">login</button>
+      <p class="message">Not registered? <a (click)="isRegistration = !isRegistration">Create an account</a></p>
+    </div>
+  </div>
+</div>

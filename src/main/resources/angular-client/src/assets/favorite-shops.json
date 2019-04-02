@@ -1,0 +1,363 @@
+[ {
+  "picture" : "http://placehold.it/150x150",
+  "name" : "Gushkool",
+  "email" : "leilaware@gushkool.com",
+  "city" : "Rabat",
+  "location" : {
+    "type" : "Point",
+    "coordinates" : [ -6.81134, 33.95564 ]
+  },
+  "id" : "5a0c6711fb3aac66aafe26c4",
+  "_links" : {
+    "self" : {
+      "href" : "http://localhost:8080/shops/5a0c6711fb3aac66aafe26c4"
+    },
+    "shop" : {
+      "href" : "http://localhost:8080/shops/5a0c6711fb3aac66aafe26c4"
+    }
+  }
+}, {
+  "picture" : "http://placehold.it/150x150",
+  "name" : "Datagene",
+  "email" : "leilaware@datagene.com",
+  "city" : "Rabat",
+  "location" : {
+    "type" : "Point",
+    "coordinates" : [ -6.83746, 33.91183 ]
+  },
+  "id" : "5a0c6711fb3aac66aafe26c5",
+  "_links" : {
+    "self" : {
+      "href" : "http://localhost:8080/shops/5a0c6711fb3aac66aafe26c5"
+    },
+    "shop" : {
+      "href" : "http://localhost:8080/shops/5a0c6711fb3aac66aafe26c5"
+    }
+  }
+}, {
+  "picture" : "http://placehold.it/150x150",
+  "name" : "Silodyne",
+  "email" : "leilaware@silodyne.com",
+  "city" : "Rabat",
+  "location" : {
+    "type" : "Point",
+    "coordinates" : [ -6.75175, 33.96853 ]
+  },
+  "id" : "5a0c6711fb3aac66aafe26c6",
+  "_links" : {
+    "self" : {
+      "href" : "http://localhost:8080/shops/5a0c6711fb3aac66aafe26c6"
+    },
+    "shop" : {
+      "href" : "http://localhost:8080/shops/5a0c6711fb3aac66aafe26c6"
+    }
+  }
+}, {
+  "picture" : "http://placehold.it/150x150",
+  "name" : "Canopoly",
+  "email" : "leilaware@canopoly.com",
+  "city" : "Rabat",
+  "location" : {
+    "type" : "Point",
+    "coordinates" : [ -6.77404, 33.80354 ]
+  },
+  "id" : "5a0c6711fb3aac66aafe26c7",
+  "_links" : {
+    "self" : {
+      "href" : "http://localhost:8080/shops/5a0c6711fb3aac66aafe26c7"
+    },
+    "shop" : {
+      "href" : "http://localhost:8080/shops/5a0c6711fb3aac66aafe26c7"
+    }
+  }
+}, {
+  "picture" : "http://placehold.it/150x150",
+  "name" : "Sonique",
+  "email" : "leilaware@sonique.com",
+  "city" : "Rabat",
+  "location" : {
+    "type" : "Point",
+    "coordinates" : [ -6.74938, 33.83436 ]
+  },
+  "id" : "5a0c6711fb3aac66aafe26c8",
+  "_links" : {
+    "self" : {
+      "href" : "http://localhost:8080/shops/5a0c6711fb3aac66aafe26c8"
+    },
+    "shop" : {
+      "href" : "http://localhost:8080/shops/5a0c6711fb3aac66aafe26c8"
+    }
+  }
+}, {
+  "picture" : "http://placehold.it/150x150",
+  "name" : "Quiltigen",
+  "email" : "leilaware@quiltigen.com",
+  "city" : "Rabat",
+  "location" : {
+    "type" : "Point",
+    "coordinates" : [ -6.84286, 33.96579 ]
+  },
+  "id" : "5a0c6711fb3aac66aafe26c9",
+  "_links" : {
+    "self" : {
+      "href" : "http://localhost:8080/shops/5a0c6711fb3aac66aafe26c9"
+    },
+    "shop" : {
+      "href" : "http://localhost:8080/shops/5a0c6711fb3aac66aafe26c9"
+    }
+  }
+}, {
+  "picture" : "http://placehold.it/150x150",
+  "name" : "Infotrips",
+  "email" : "leilaware@infotrips.com",
+  "city" : "Rabat",
+  "location" : {
+    "type" : "Point",
+    "coordinates" : [ -6.80604, 33.94889 ]
+  },
+  "id" : "5a0c6711fb3aac66aafe26ca",
+  "_links" : {
+    "self" : {
+      "href" : "http://localhost:8080/shops/5a0c6711fb3aac66aafe26ca"
+    },
+    "shop" : {
+      "href" : "http://localhost:8080/shops/5a0c6711fb3aac66aafe26ca"
+    }
+  }
+}, {
+  "picture" : "http://placehold.it/150x150",
+  "name" : "Biflex",
+  "email" : "leilaware@biflex.com",
+  "city" : "Rabat",
+  "location" : {
+    "type" : "Point",
+    "coordinates" : [ -6.8123, 33.86261 ]
+  },
+  "id" : "5a0c6711fb3aac66aafe26cb",
+  "_links" : {
+    "self" : {
+      "href" : "http://localhost:8080/shops/5a0c6711fb3aac66aafe26cb"
+    },
+    "shop" : {
+      "href" : "http://localhost:8080/shops/5a0c6711fb3aac66aafe26cb"
+    }
+  }
+}, {
+  "picture" : "http://placehold.it/150x150",
+  "name" : "Permadyne",
+  "email" : "leilaware@permadyne.com",
+  "city" : "Rabat",
+  "location" : {
+    "type" : "Point",
+    "coordinates" : [ -6.75058, 33.81395 ]
+  },
+  "id" : "5a0c6711fb3aac66aafe26cc",
+  "_links" : {
+    "self" : {
+      "href" : "http://localhost:8080/shops/5a0c6711fb3aac66aafe26cc"
+    },
+    "shop" : {
+      "href" : "http://localhost:8080/shops/5a0c6711fb3aac66aafe26cc"
+    }
+  }
+}, {
+  "picture" : "http://placehold.it/150x150",
+  "name" : "Bunga",
+  "email" : "leilaware@bunga.com",
+  "city" : "Rabat",
+  "location" : {
+    "type" : "Point",
+    "coordinates" : [ -6.77428, 33.94109 ]
+  },
+  "id" : "5a0c6711fb3aac66aafe26cd",
+  "_links" : {
+    "self" : {
+      "href" : "http://localhost:8080/shops/5a0c6711fb3aac66aafe26cd"
+    },
+    "shop" : {
+      "href" : "http://localhost:8080/shops/5a0c6711fb3aac66aafe26cd"
+    }
+  }
+}, {
+  "picture" : "http://placehold.it/150x150",
+  "name" : "Vendblend",
+  "email" : "leilaware@vendblend.com",
+  "city" : "Rabat",
+  "location" : {
+    "type" : "Point",
+    "coordinates" : [ -6.78522, 33.89471 ]
+  },
+  "id" : "5a0c6711fb3aac66aafe26ce",
+  "_links" : {
+    "self" : {
+      "href" : "http://localhost:8080/shops/5a0c6711fb3aac66aafe26ce"
+    },
+    "shop" : {
+      "href" : "http://localhost:8080/shops/5a0c6711fb3aac66aafe26ce"
+    }
+  }
+}, {
+  "picture" : "http://placehold.it/150x150",
+  "name" : "Strezzo",
+  "email" : "leilaware@strezzo.com",
+  "city" : "Rabat",
+  "location" : {
+    "type" : "Point",
+    "coordinates" : [ -6.78271, 33.8021 ]
+  },
+  "id" : "5a0c6711fb3aac66aafe26cf",
+  "_links" : {
+    "self" : {
+      "href" : "http://localhost:8080/shops/5a0c6711fb3aac66aafe26cf"
+    },
+    "shop" : {
+      "href" : "http://localhost:8080/shops/5a0c6711fb3aac66aafe26cf"
+    }
+  }
+}, {
+  "picture" : "http://placehold.it/150x150",
+  "name" : "Multiflex",
+  "email" : "leilaware@multiflex.com",
+  "city" : "Rabat",
+  "location" : {
+    "type" : "Point",
+    "coordinates" : [ -6.84318, 33.91423 ]
+  },
+  "id" : "5a0c6711fb3aac66aafe26d0",
+  "_links" : {
+    "self" : {
+      "href" : "http://localhost:8080/shops/5a0c6711fb3aac66aafe26d0"
+    },
+    "shop" : {
+      "href" : "http://localhost:8080/shops/5a0c6711fb3aac66aafe26d0"
+    }
+  }
+}, {
+  "picture" : "http://placehold.it/150x150",
+  "name" : "Amtas",
+  "email" : "leilaware@amtas.com",
+  "city" : "Rabat",
+  "location" : {
+    "type" : "Point",
+    "coordinates" : [ -6.76681, 33.92546 ]
+  },
+  "id" : "5a0c6711fb3aac66aafe26d1",
+  "_links" : {
+    "self" : {
+      "href" : "http://localhost:8080/shops/5a0c6711fb3aac66aafe26d1"
+    },
+    "shop" : {
+      "href" : "http://localhost:8080/shops/5a0c6711fb3aac66aafe26d1"
+    }
+  }
+}, {
+  "picture" : "http://placehold.it/150x150",
+  "name" : "Medmex",
+  "email" : "leilaware@medmex.com",
+  "city" : "Rabat",
+  "location" : {
+    "type" : "Point",
+    "coordinates" : [ -6.75185, 33.89586 ]
+  },
+  "id" : "5a0c6711fb3aac66aafe26d2",
+  "_links" : {
+    "self" : {
+      "href" : "http://localhost:8080/shops/5a0c6711fb3aac66aafe26d2"
+    },
+    "shop" : {
+      "href" : "http://localhost:8080/shops/5a0c6711fb3aac66aafe26d2"
+    }
+  }
+}, {
+  "picture" : "http://placehold.it/150x150",
+  "name" : "Limozen",
+  "email" : "leilaware@limozen.com",
+  "city" : "Rabat",
+  "location" : {
+    "type" : "Point",
+    "coordinates" : [ -6.84619, 33.94625 ]
+  },
+  "id" : "5a0c6711fb3aac66aafe26d3",
+  "_links" : {
+    "self" : {
+      "href" : "http://localhost:8080/shops/5a0c6711fb3aac66aafe26d3"
+    },
+    "shop" : {
+      "href" : "http://localhost:8080/shops/5a0c6711fb3aac66aafe26d3"
+    }
+  }
+}, {
+  "picture" : "http://placehold.it/150x150",
+  "name" : "Securia",
+  "email" : "leilaware@securia.com",
+  "city" : "Rabat",
+  "location" : {
+    "type" : "Point",
+    "coordinates" : [ -6.82966, 33.94125 ]
+  },
+  "id" : "5a0c6711fb3aac66aafe26d4",
+  "_links" : {
+    "self" : {
+      "href" : "http://localhost:8080/shops/5a0c6711fb3aac66aafe26d4"
+    },
+    "shop" : {
+      "href" : "http://localhost:8080/shops/5a0c6711fb3aac66aafe26d4"
+    }
+  }
+}, {
+  "picture" : "http://placehold.it/150x150",
+  "name" : "Enerforce",
+  "email" : "leilaware@enerforce.com",
+  "city" : "Rabat",
+  "location" : {
+    "type" : "Point",
+    "coordinates" : [ -6.79465, 33.97383 ]
+  },
+  "id" : "5a0c6748fb3aac66aafe26d5",
+  "_links" : {
+    "self" : {
+      "href" : "http://localhost:8080/shops/5a0c6748fb3aac66aafe26d5"
+    },
+    "shop" : {
+      "href" : "http://localhost:8080/shops/5a0c6748fb3aac66aafe26d5"
+    }
+  }
+}, {
+  "picture" : "http://placehold.it/150x150",
+  "name" : "Earwax",
+  "email" : "leilaware@earwax.com",
+  "city" : "Rabat",
+  "location" : {
+    "type" : "Point",
+    "coordinates" : [ -6.81943, 33.87998 ]
+  },
+  "id" : "5a0c6748fb3aac66aafe26d6",
+  "_links" : {
+    "self" : {
+      "href" : "http://localhost:8080/shops/5a0c6748fb3aac66aafe26d6"
+    },
+    "shop" : {
+      "href" : "http://localhost:8080/shops/5a0c6748fb3aac66aafe26d6"
+    }
+  }
+}, {
+  "picture" : "http://placehold.it/150x150",
+  "name" : "Cablam",
+  "email" : "leilaware@cablam.com",
+  "city" : "Rabat",
+  "location" : {
+    "type" : "Point",
+    "coordinates" : [ -6.75778, 33.97468 ]
+  },
+  "id" : "5a0c6748fb3aac66aafe26d7",
+  "_links" : {
+    "self" : {
+      "href" : "http://localhost:8080/shops/5a0c6748fb3aac66aafe26d7"
+    },
+    "shop" : {
+      "href" : "http://localhost:8080/shops/5a0c6748fb3aac66aafe26d7"
+    }
+  }
+} ]
+
+

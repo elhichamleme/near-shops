@@ -1,0 +1,11 @@
+<div class="container" infinite-scroll (scrolled)="moreShops()">
+  <div class="item"  *ngFor="let shop of favoriteShops">
+    <span class="title">{{shop.name}}</span>
+    <img src="{{shop.picture}}">
+    <div class="control">
+      <a (click)="likeShop(shop)" class="positive">like</a>
+      <a (click)="dislikeShop(shop)" class="negative">dislike</a>
+    </div>
+  </div>
+
+</div>

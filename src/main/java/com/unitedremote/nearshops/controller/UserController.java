@@ -1,5 +1,6 @@
 package com.unitedremote.nearshops.controller;
 
+import com.unitedremote.nearshops.model.entity.User;
 import com.unitedremote.nearshops.model.repository.UserRepository;
 import com.unitedremote.nearshops.security.jwt.JwtTokenProvider;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,11 +10,13 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -29,17 +32,16 @@ public class UserController {
     JwtTokenProvider jwtTokenProvider;
     @Autowired
     UserRepository users;
+    @Autowired
+    PasswordEncoder passwordEncoder;
     @PostMapping("/signin")
-    public ResponseEntity signin(@RequestBody Map<String,String> data) {
+    public ResponseEntity signin(@RequestBody Map<String,String> credentials) {
 
 
         try {
 
-            String username = data.get("username");
-            String password = data.get("password");
-
-            System.out.println(username);
-            System.out.println(password);
+            String username = credentials.get("username");
+            String password = credentials.get("password");
 
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
             String token = jwtTokenProvider.createToken(
@@ -55,5 +57,22 @@ public class UserController {
             throw new BadCredentialsException("Invalid username/password supplied");
         }
     }
+
+    @PostMapping("/create")
+    public  ResponseEntity createUser(@RequestBody Map<String, String>  credentials){
+        String username = credentials.get("username");
+        String password = credentials.get("password");
+
+        User user = new User();
+        user.setEmail(username);
+        user.setPassword(this.passwordEncoder.encode(password));
+        user.setRoles(Arrays.asList( "ROLE_USER"));
+        this.users.save(user);
+
+        return ResponseEntity.accepted().build();
+
+
+    }
+
 
 }

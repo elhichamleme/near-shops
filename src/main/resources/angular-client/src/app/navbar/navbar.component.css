@@ -1,0 +1,11 @@
+nav{
+  display: flex;
+  justify-content: flex-end;
+}
+nav > a{
+  margin: 10px;
+}
+
+.sign-out{
+  align-self: flex-start;
+}
