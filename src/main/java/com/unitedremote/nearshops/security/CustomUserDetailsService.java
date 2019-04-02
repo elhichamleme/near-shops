@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class CustomUserDetailsService implements UserDetailsService {
+
     private UserRepository users;
     public CustomUserDetailsService(UserRepository users) {
         this.users = users;
