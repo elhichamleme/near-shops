@@ -13,6 +13,7 @@ export class ShopService {
   private PREFERRED_SHOPS_URL = this.SHOPS_URL + "/preferred";
   private LIKE_SHOPS_URL = this.SHOPS_URL + "/like";
   private DISLIKE_SHOPS_URL = this.SHOPS_URL + "/dislike";
+  private REMOVE_FROM_PREFERRED = this.SHOPS_URL + "/remove-from-preferred";
 
   constructor(private httpClient: HttpClient, private auth: AuthService) { }
 
@@ -32,6 +33,10 @@ export class ShopService {
 
   dislikeShop(shopId: string){
     return this.httpClient.get(this.DISLIKE_SHOPS_URL + "/" + shopId);
+  }
+
+  removeFromPreferred(shopId: string){
+    return this.httpClient.get(this.REMOVE_FROM_PREFERRED + "/" + shopId);
   }
 
 

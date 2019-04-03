@@ -9,7 +9,7 @@ import {Router} from "@angular/router";
 })
 export class NavbarComponent implements OnInit {
 
-  @Input() component: string;
+  @Input() caller: string;
 
   constructor(private auth: AuthService, public router: Router) { }
 

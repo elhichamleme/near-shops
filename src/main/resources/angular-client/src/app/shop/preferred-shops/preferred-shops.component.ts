@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from "../../auth/auth.service";
 import {ShopService} from "../shop.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-favorite-shops',
@@ -10,7 +11,7 @@ import {ShopService} from "../shop.service";
 export class PreferredShopsComponent implements OnInit {
 
   preferredShopsArray: Array<any>
-  constructor(private authService: AuthService, private shopService: ShopService) { }
+  constructor(private authService: AuthService, private shopService: ShopService, public router: Router) { }
 
   ngOnInit() {
 
@@ -22,8 +23,14 @@ export class PreferredShopsComponent implements OnInit {
 
   }
 
-  dislikeShop(shop: any){
-    this.preferredShopsArray.push(shop)
+  removeFromPreferred(shopId: any){
+    this.shopService.removeFromPreferred(shopId).subscribe(data =>{
+      console.log("removing preferred");
+      this.preferredShopsArray= this.preferredShopsArray.filter(value => {
+        return value["id"] != shopId
+      })
+    });
+
   }
 
 }

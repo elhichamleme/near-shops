@@ -1,11 +1,22 @@
 nav{
   display: flex;
+  flex-wrap: wrap;
   justify-content: flex-end;
 }
 nav > a{
   margin: 10px;
+  text-decoration: underline;
+  color: #000;
+}
+
+nav > a.current{
+  text-decoration: none;
 }
 
 .sign-out{
   align-self: flex-start;
+}
+
+.control{
+
 }

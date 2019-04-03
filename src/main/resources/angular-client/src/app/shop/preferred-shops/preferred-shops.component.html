@@ -1,4 +1,4 @@
-<app-navbar component="preferredShops">
+<app-navbar component="preferredShops" caller="preferredShops">
 
 </app-navbar>
 <div class="container" >
@@ -6,7 +6,7 @@
     <span class="title">{{shop.name}}</span>
     <img src="{{shop.picture}}">
     <div class="control">
-      <a (click)="dislikeShop(shop)" class="negative">dislike</a>
+      <a (click)="removeFromPreferred(shop.id)" class="negative">remove</a>
     </div>
   </div>
 

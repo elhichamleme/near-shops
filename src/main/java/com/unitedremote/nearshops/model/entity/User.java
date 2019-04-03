@@ -14,8 +14,8 @@ public class User implements UserDetails {
     @Id
     private String email;
     private String password;
-    private Set<Shop> preferredShops = new HashSet<>();
-    private Set<Shop> dislikedShops = new HashSet<>();
+    private Set<String> preferredShops = new HashSet<>();
+    private Map<String, Date> dislikedShops = new HashMap<>();
     private List<String> roles = new ArrayList<>();
 
     public User() {
@@ -33,19 +33,19 @@ public class User implements UserDetails {
         this.password = password;
     }
 
-    public Set<Shop> getPreferredShops() {
+    public Set<String> getPreferredShops() {
         return preferredShops;
     }
 
-    public void setPreferredShops(Set<Shop> preferredShops) {
+    public void setPreferredShops(Set<String> preferredShops) {
         this.preferredShops = preferredShops;
     }
 
-    public Set<Shop> getDislikedShops() {
+    public Map<String, Date> getDislikedShops() {
         return dislikedShops;
     }
 
-    public void setDislikedShops(Set<Shop> dislikedShops) {
+    public void setDislikedShops(Map<String, Date> dislikedShops) {
         this.dislikedShops = dislikedShops;
     }
 

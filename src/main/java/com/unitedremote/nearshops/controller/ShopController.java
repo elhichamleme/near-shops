@@ -9,9 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
 import static org.springframework.http.ResponseEntity.ok;
 
@@ -24,23 +22,33 @@ public class ShopController {
     UserRepository userRepository;
 
     @GetMapping("/near/{latitude}/{longitude}")
-    public ResponseEntity<List<Shop>> nearShops(@PathVariable  double latitude, @PathVariable double longitude){
+    public ResponseEntity<List<Shop>> nearShops(@PathVariable  double latitude, @PathVariable double longitude, @AuthenticationPrincipal User user){
 
-        System.out.println(shopRepository.shopsOrderedByDistance(latitude, longitude).size());
-        return ok(shopRepository.shopsOrderedByDistance(latitude, longitude));
+        List<Shop> nearShops = new ArrayList<>(shopRepository.shopsOrderedByDistance(latitude, longitude));
+        user.getDislikedShops().forEach((shopId, date)->{
+            Optional<Shop> optionalShop = shopRepository.findById(shopId);
+            if(optionalShop.isPresent()){
+                if((new Date().getTime()-date.getTime())/3600000 < 2)
+                    nearShops.remove(optionalShop.get());
+            }
+        });
+
+        return ok(nearShops);
+
+
     }
     @GetMapping("/preferred")
-    ResponseEntity<Set<Shop>> preferredShops(@AuthenticationPrincipal User user)
+    ResponseEntity<Iterable<Shop>> preferredShops(@AuthenticationPrincipal User user)
     {
 
-        return ok(user.getPreferredShops());
+        return ok(shopRepository.findAllById(user.getPreferredShops()));
     }
 
     @GetMapping("/like/{shopId}")
     ResponseEntity<String> likeShop(@PathVariable String shopId, @AuthenticationPrincipal User user){
        Optional<Shop> optionalShop = shopRepository.findById(shopId);
         if(optionalShop.isPresent()){
-            user.getPreferredShops().add(optionalShop.get());
+            user.getPreferredShops().add(optionalShop.get().getId());
             userRepository.save(user);
 
         }
@@ -49,17 +57,30 @@ public class ShopController {
 
     }
 
-    @PostMapping("/dislike/{shopId}")
-    ResponseEntity<String> dislikeShop(@PathVariable String shopId, @AuthenticationPrincipal User user){
+    @GetMapping("/remove-from-preferred/{shopId}")
+    ResponseEntity<Shop> removeFromPreferred(@PathVariable String shopId, @AuthenticationPrincipal User user){
 
         Optional<Shop> optionalShop = shopRepository.findById(shopId);
         if(optionalShop.isPresent()){
-            user.getDislikedShops().add(optionalShop.get());
+            user.getPreferredShops().remove(shopId);
             userRepository.save(user);
         }
 
         return ResponseEntity.accepted().build();
     }
+
+    @GetMapping("/dislike/{shopId}")
+    ResponseEntity<String> dislikeShop(@PathVariable String shopId, @AuthenticationPrincipal User user){
+
+        Optional<Shop> optionalShop = shopRepository.findById(shopId);
+        if(optionalShop.isPresent()){
+            user.getDislikedShops().put(shopId, new Date());
+            userRepository.save(user);
+        }
+
+        return ResponseEntity.accepted().build();
+    }
+
 
 
 }

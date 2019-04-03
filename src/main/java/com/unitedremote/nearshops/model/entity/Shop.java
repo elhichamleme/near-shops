@@ -2,10 +2,9 @@ package com.unitedremote.nearshops.model.entity;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.Field;
 
 
-@Document(collection = "shopsArray")
+@Document(collection = "shops")
 public class Shop {
 
     @Id
@@ -71,5 +70,11 @@ public class Shop {
 
     public void setDistance(double distance) {
         this.distance = distance;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+
+        return this.id.equals(((Shop)obj).getId());
     }
 }

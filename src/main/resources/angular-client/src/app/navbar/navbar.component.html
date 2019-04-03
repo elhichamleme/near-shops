@@ -1,5 +1,5 @@
 <nav>
   <a (click)="signOut()" class="sign-out">sign out</a>
-  <a [routerLink]="['/near-shops']" [hidden]="component =='nearShops'">near shops</a>
-  <a [routerLink]="['/preferred-shops']" [hidden]="component =='preferredShops'">preferred shops</a>
+  <a [routerLink]="['/near-shops']"  class="control" [ngClass]="{'current': caller=='nearShops'}">near shops</a>
+  <a [routerLink]="['/preferred-shops']" class="control" [ngClass]="{'current': caller=='preferredShops'}" >preferred shops</a>
 </nav>
