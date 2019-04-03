@@ -27,4 +27,25 @@ Optional features
 
 Installation
 -----------------
-**database**
+please run this step in the order that they appear on
+
+####database
+
+cd src/main/resources and run 
+```
+mongorestore dump-shops
+```
+#### front end
+cd src/main/resources/angular-client and run
+```
+npm install && ng build
+```
+
+#### Back end
+cd the project root folder and run 
+```
+mvn spring-boot:run
+```
+
+visit the url  http://localhost:8090
+
