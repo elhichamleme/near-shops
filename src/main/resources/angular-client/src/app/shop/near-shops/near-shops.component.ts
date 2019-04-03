@@ -7,7 +7,7 @@ import {ShopService} from "../shop.service";
   styleUrls: ['./near-shops.component.css']
 })
 export class NearShopsComponent implements OnInit {
-  shops: Array<any>;
+  shopsArray: Array<any>;
 
   constructor(private shopService: ShopService) { }
 
@@ -17,7 +17,7 @@ export class NearShopsComponent implements OnInit {
       console.log("geolocation exist");
       navigator.geolocation.getCurrentPosition(position => {
         this.shopService.nearShops(position.coords.latitude, position.coords.longitude).subscribe(data =>{
-          this.shops = data;
+          this.shopsArray = data;
 
         })
       })
@@ -34,18 +34,17 @@ export class NearShopsComponent implements OnInit {
 
   likeShop(shopId: any)
   {
-    this.shopService.likeShop(shopId).subscribe(data =>{
-
-    });
+    this.shopService.likeShop(shopId).subscribe(data =>{});
    console.log(shopId)
 
   }
 
   dislikeShop(shopId: any)
   {
-    this.shopService.dislikeShop(shopId).subscribe(data =>{
-
-    });
+    this.shopService.dislikeShop(shopId).subscribe(data =>{});
+    this.shopsArray = this.shopsArray.filter(value => {
+      return value["id"] != shopId
+    })
     console.log(shopId)
   }
 }

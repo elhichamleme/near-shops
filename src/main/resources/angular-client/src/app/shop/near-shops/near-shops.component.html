@@ -2,7 +2,7 @@
 
 </app-navbar>
 <div class="container" infinite-scroll (scrolled)="moreShops()">
-    <div class="item"  *ngFor="let shop of shops">
+    <div class="item"  *ngFor="let shop of shopsArray">
       <span class="title">{{shop.name}}</span>
       <img src="{{shop.picture}}">
       <div class="control">

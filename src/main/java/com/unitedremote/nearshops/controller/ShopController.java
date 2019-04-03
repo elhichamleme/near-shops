@@ -26,6 +26,7 @@ public class ShopController {
     @GetMapping("/near/{latitude}/{longitude}")
     public ResponseEntity<List<Shop>> nearShops(@PathVariable  double latitude, @PathVariable double longitude){
 
+        System.out.println(shopRepository.shopsOrderedByDistance(latitude, longitude).size());
         return ok(shopRepository.shopsOrderedByDistance(latitude, longitude));
     }
     @GetMapping("/preferred")

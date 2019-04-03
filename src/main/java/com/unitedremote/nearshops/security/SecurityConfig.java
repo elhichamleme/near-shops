@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 
@@ -21,6 +22,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
     }
+
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+        web.ignoring().antMatchers("/auth/**");
+    }
+
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
@@ -33,12 +40,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .logout().logoutUrl("auth/sign-out")
                 .and()
                 .authorizeRequests()
-                .antMatchers("/public/**").permitAll()
-                .antMatchers("/auth/sign-in").permitAll()
-                .antMatchers(HttpMethod.GET, "/shops/**").authenticated()
-                .antMatchers(HttpMethod.POST, "/shops/**").authenticated()
-                //.anyRequest().authenticated()
-                .anyRequest().permitAll();
+                .antMatchers("/shopsArray/**").authenticated();
+
+
 
 
 

@@ -25,7 +25,7 @@ public class ShopRepositoryImpl implements ShopRepositoryCustom {
         this.mongoTemplate = mongoTemplate;
     }
 
-    // Custom Repository method that get shops ordered by the nearest to a provided latitude and longitude
+    // Custom Repository method that get shopsArray ordered by the nearest to a provided latitude and longitude
     @Override
     public List<Shop> shopsOrderedByDistance(double latitude, double longitude) {
 
