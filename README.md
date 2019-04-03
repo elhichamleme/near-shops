@@ -1,3 +1,6 @@
+Near shops
+--------------
+this application allow you list shops nearby you sorted by the distance you can like a shop to be added to your preferred list or dislike him 
 
 What's inside
 ---------------
