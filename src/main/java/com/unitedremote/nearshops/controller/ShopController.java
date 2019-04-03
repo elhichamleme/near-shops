@@ -1,5 +1,6 @@
 package com.unitedremote.nearshops.controller;
 
+import com.google.common.collect.Lists;
 import com.unitedremote.nearshops.model.entity.Shop;
 import com.unitedremote.nearshops.model.entity.User;
 import com.unitedremote.nearshops.model.repository.ShopRepository;
@@ -24,14 +25,23 @@ public class ShopController {
     @GetMapping("/near/{latitude}/{longitude}")
     public ResponseEntity<List<Shop>> nearShops(@PathVariable  double latitude, @PathVariable double longitude, @AuthenticationPrincipal User user){
 
-        List<Shop> nearShops = new ArrayList<>(shopRepository.shopsOrderedByDistance(latitude, longitude));
+        List<Shop> nearShops = new ArrayList<Shop>( shopRepository.shopsOrderedByDistance(latitude, longitude));
+        // remove disliked shops from nearby shops list
         user.getDislikedShops().forEach((shopId, date)->{
             Optional<Shop> optionalShop = shopRepository.findById(shopId);
             if(optionalShop.isPresent()){
                 if((new Date().getTime()-date.getTime())/3600000 < 2)
-                    nearShops.remove(optionalShop.get());
+                    System.out.println(nearShops.remove(optionalShop.get()));
             }
+
+
         });
+
+        System.out.println(nearShops.size());
+        // remove liked shops from nearby shops list
+        nearShops.removeAll(Lists.newArrayList(shopRepository.findAllById(user.getPreferredShops())));
+
+
 
         return ok(nearShops);
 

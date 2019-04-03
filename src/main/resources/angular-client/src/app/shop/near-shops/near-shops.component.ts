@@ -21,27 +21,27 @@ export class NearShopsComponent implements OnInit {
       })
 
     }
-
-
-
-
-
-
-
-  }
+}
 
   likeShop(shopId: any)
   {
-    this.shopService.likeShop(shopId).subscribe(data =>{});
+    this.shopService.likeShop(shopId).subscribe(data =>{
+      console.log("like shop");
+      this.shopsArray= this.shopsArray.filter(value => {
+        return value["id"] != shopId
+      })
+    });
 
   }
 
   dislikeShop(shopId: any)
   {
-    this.shopService.dislikeShop(shopId).subscribe(data =>{});
-    this.shopsArray = this.shopsArray.filter(value => {
-      return value["id"] != shopId
-    })
+    this.shopService.dislikeShop(shopId).subscribe(data =>{
+      this.shopsArray = this.shopsArray.filter(value => {
+        return value["id"] != shopId
+      })
+    });
+
   }
 }
 

@@ -77,4 +77,9 @@ public class Shop {
 
         return this.id.equals(((Shop)obj).getId());
     }
+
+    @Override
+    public int hashCode() {
+        return 1;
+    }
 }
