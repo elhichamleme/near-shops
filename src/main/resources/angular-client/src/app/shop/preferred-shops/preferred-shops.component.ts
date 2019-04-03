@@ -25,7 +25,6 @@ export class PreferredShopsComponent implements OnInit {
 
   removeFromPreferred(shopId: any){
     this.shopService.removeFromPreferred(shopId).subscribe(data =>{
-      console.log("removing preferred");
       this.preferredShopsArray= this.preferredShopsArray.filter(value => {
         return value["id"] != shopId
       })

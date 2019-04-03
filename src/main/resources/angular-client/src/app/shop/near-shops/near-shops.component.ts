@@ -12,9 +12,7 @@ export class NearShopsComponent implements OnInit {
   constructor(private shopService: ShopService) { }
 
   ngOnInit() {
-    console.log("get gps coords");
     if(navigator.geolocation){
-      console.log("geolocation exist");
       navigator.geolocation.getCurrentPosition(position => {
         this.shopService.nearShops(position.coords.latitude, position.coords.longitude).subscribe(data =>{
           this.shopsArray = data;
@@ -35,7 +33,6 @@ export class NearShopsComponent implements OnInit {
   likeShop(shopId: any)
   {
     this.shopService.likeShop(shopId).subscribe(data =>{});
-   console.log(shopId)
 
   }
 
@@ -45,7 +42,6 @@ export class NearShopsComponent implements OnInit {
     this.shopsArray = this.shopsArray.filter(value => {
       return value["id"] != shopId
     })
-    console.log(shopId)
   }
 }
 
