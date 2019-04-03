@@ -1,5 +1,6 @@
-Near shops
+Near Shops
 --------------
+
 this application allow you list shops nearby you sorted by the distance you can like a shop to be added to your preferred list or dislike him 
 
 What's inside
@@ -12,7 +13,6 @@ Main Features
 ---------------
 
 -[x] As a User, I can sign up using my email & password
-
 -[x] As a User, I can sign in using my email & password
 -[x] As a User, I can display the list of shops sorted by distance
 -[ ] As a User, I can like a shop, so it can be added to my preferred shops
