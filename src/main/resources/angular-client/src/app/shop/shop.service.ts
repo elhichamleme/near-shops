@@ -11,6 +11,8 @@ export class ShopService {
   private SHOPS_URL = "http://localhost:8090/shops";
   private NEAR_SHOPS_URL = this.SHOPS_URL + "/near";
   private PREFERRED_SHOPS_URL = this.SHOPS_URL + "/preferred";
+  private LIKE_SHOPS_URL = this.SHOPS_URL + "/like";
+  private DISLIKE_SHOPS_URL = this.SHOPS_URL + "/dislike";
 
   constructor(private httpClient: HttpClient, private auth: AuthService) { }
 
@@ -24,6 +26,13 @@ export class ShopService {
     return this.httpClient.get(this.PREFERRED_SHOPS_URL)
 }
 
+  likeShop(shopId: string){
+    return this.httpClient.get(this.LIKE_SHOPS_URL + "/" + shopId);
+  }
+
+  dislikeShop(shopId: string){
+    return this.httpClient.get(this.DISLIKE_SHOPS_URL + "/" + shopId);
+  }
 
 
 

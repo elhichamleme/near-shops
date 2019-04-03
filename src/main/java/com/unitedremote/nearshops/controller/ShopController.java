@@ -10,6 +10,8 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.Set;
 
 import static org.springframework.http.ResponseEntity.ok;
 
@@ -27,23 +29,35 @@ public class ShopController {
         return ok(shopRepository.shopsOrderedByDistance(latitude, longitude));
     }
     @GetMapping("/preferred")
-    ResponseEntity<List<Shop>> preferredShops(@AuthenticationPrincipal User user)
+    ResponseEntity<Set<Shop>> preferredShops(@AuthenticationPrincipal User user)
     {
 
-        return ok(user.getFavoriteShops());
+        return ok(user.getPreferredShops());
     }
 
     @GetMapping("/like/{shopId}")
     ResponseEntity<String> likeShop(@PathVariable String shopId, @AuthenticationPrincipal User user){
+       Optional<Shop> optionalShop = shopRepository.findById(shopId);
+        if(optionalShop.isPresent()){
+            user.getPreferredShops().add(optionalShop.get());
+            userRepository.save(user);
+
+        }
        
-        return ok("ok");
+        return ResponseEntity.accepted().build();
 
     }
 
-    @PostMapping("/dislike/{email}/{shopId}")
-    ResponseEntity<String> dislikeShop(@PathVariable String email, @PathVariable String shopId){
-        return ok("ok");
+    @PostMapping("/dislike/{shopId}")
+    ResponseEntity<String> dislikeShop(@PathVariable String shopId, @AuthenticationPrincipal User user){
 
+        Optional<Shop> optionalShop = shopRepository.findById(shopId);
+        if(optionalShop.isPresent()){
+            user.getDislikedShops().add(optionalShop.get());
+            userRepository.save(user);
+        }
+
+        return ResponseEntity.accepted().build();
     }
 
 

@@ -9,9 +9,9 @@ import {Observable} from "rxjs";
 export class AuthService {
 
   AUTH_URL = "http://localhost:8090/auth";
-  SIGN_IN_URL = this.AUTH_URL + "/signin";
-  SIGN_OUT_URL = this.AUTH_URL + "/signout";
-  CREATE_USER_URL = this.AUTH_URL + "/create";
+  SIGN_IN_URL = this.AUTH_URL + "/sign-in";
+  SIGN_OUT_URL = this.AUTH_URL + "/sign-out";
+  CREATE_USER_URL = this.AUTH_URL + "/create-user";
 
 
   constructor(private httpClient: HttpClient,public router: Router) { }

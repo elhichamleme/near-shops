@@ -34,15 +34,14 @@ public class UserController {
     UserRepository users;
     @Autowired
     PasswordEncoder passwordEncoder;
-    @PostMapping("/signin")
-    public ResponseEntity signin(@RequestBody Map<String,String> credentials) {
+    @PostMapping("/sign-in")
+    public ResponseEntity signIn(@RequestBody Map<String,String> credentials) {
 
 
         try {
 
             String username = credentials.get("username");
             String password = credentials.get("password");
-
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
             String token = jwtTokenProvider.createToken(
                     username, this.users.findByEmail(username)
@@ -58,7 +57,8 @@ public class UserController {
         }
     }
 
-    @PostMapping("/create")
+
+    @PostMapping("/create-user")
     public  ResponseEntity createUser(@RequestBody Map<String, String>  credentials){
         String username = credentials.get("username");
         String password = credentials.get("password");
@@ -73,6 +73,8 @@ public class UserController {
 
 
     }
+
+
 
 
 }

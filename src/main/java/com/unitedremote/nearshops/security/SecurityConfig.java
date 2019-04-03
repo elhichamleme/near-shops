@@ -28,14 +28,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
+                .apply(new JwtConfigurer(jwtTokenProvider))
+                .and()
+                .logout().logoutUrl("auth/sign-out")
+                .and()
                 .authorizeRequests()
                 .antMatchers("/public/**").permitAll()
-                .antMatchers("/auth/signin").permitAll()
+                .antMatchers("/auth/sign-in").permitAll()
                 .antMatchers(HttpMethod.GET, "/shops/**").authenticated()
                 .antMatchers(HttpMethod.POST, "/shops/**").authenticated()
                 //.anyRequest().authenticated()
-                .anyRequest().permitAll()
-                .and()
-                .apply(new JwtConfigurer(jwtTokenProvider));
+                .anyRequest().permitAll();
+
+
+
     }
 }

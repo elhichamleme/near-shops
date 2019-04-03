@@ -28,28 +28,25 @@ export class NearShopsComponent implements OnInit {
 
 
 
-  }
-
- // @HostListener('window:scroll',['$event'])
-  moreShops(event){
-
-
-  //  this.shops=this.shops.concat(this.shops)
 
 
   }
 
-   data=  []
-
-  likeShop(shop: any)
+  likeShop(shopId: any)
   {
-   // this.favoriteShopsComponent.addToFavorite(shop)
+    this.shopService.likeShop(shopId).subscribe(data =>{
+
+    });
+   console.log(shopId)
 
   }
 
-  dislikeShop(shop: any)
+  dislikeShop(shopId: any)
   {
+    this.shopService.dislikeShop(shopId).subscribe(data =>{
 
+    });
+    console.log(shopId)
   }
 }
 

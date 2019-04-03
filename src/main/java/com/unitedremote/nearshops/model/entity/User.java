@@ -5,9 +5,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 
 import static java.util.stream.Collectors.toList;
 
@@ -16,7 +14,8 @@ public class User implements UserDetails {
     @Id
     private String email;
     private String password;
-    private List<Shop> favoriteShops=new ArrayList<>();
+    private Set<Shop> preferredShops = new HashSet<>();
+    private Set<Shop> dislikedShops = new HashSet<>();
     private List<String> roles = new ArrayList<>();
 
     public User() {
@@ -34,12 +33,20 @@ public class User implements UserDetails {
         this.password = password;
     }
 
-    public List<Shop> getFavoriteShops() {
-        return favoriteShops;
+    public Set<Shop> getPreferredShops() {
+        return preferredShops;
     }
 
-    public void setFavoriteShops(List<Shop> favoriteShops) {
-        this.favoriteShops = favoriteShops;
+    public void setPreferredShops(Set<Shop> preferredShops) {
+        this.preferredShops = preferredShops;
+    }
+
+    public Set<Shop> getDislikedShops() {
+        return dislikedShops;
+    }
+
+    public void setDislikedShops(Set<Shop> dislikedShops) {
+        this.dislikedShops = dislikedShops;
     }
 
     public List<String> getRoles() {

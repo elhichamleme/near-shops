@@ -4,26 +4,26 @@ import {ShopService} from "../shop.service";
 
 @Component({
   selector: 'app-favorite-shops',
-  templateUrl: './favorite-shops.component.html',
-  styleUrls: ['./favorite-shops.component.css']
+  templateUrl: './preferred-shops.component.html',
+  styleUrls: ['./preferred-shops.component.css']
 })
-export class FavoriteShopsComponent implements OnInit {
+export class PreferredShopsComponent implements OnInit {
 
-  favoriteShops: Array<any>
+  preferredShopsArray: Array<any>
   constructor(private authService: AuthService, private shopService: ShopService) { }
 
   ngOnInit() {
 
      this.shopService.preferredShops().subscribe(data =>{
-       this.favoriteShops = data
+       this.preferredShopsArray = data
      })
 
 
 
   }
 
-  addToFavorite(shop: any){
-    this.favoriteShops.push(shop)
+  dislikeShop(shop: any){
+    this.preferredShopsArray.push(shop)
   }
 
 }

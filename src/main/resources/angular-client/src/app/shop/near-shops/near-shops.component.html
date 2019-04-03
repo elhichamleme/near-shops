@@ -1,4 +1,4 @@
-<app-navbar>
+<app-navbar component="nearShops">
 
 </app-navbar>
 <div class="container" infinite-scroll (scrolled)="moreShops()">
@@ -6,8 +6,8 @@
       <span class="title">{{shop.name}}</span>
       <img src="{{shop.picture}}">
       <div class="control">
-        <a (click)="likeShop(shop)" class="positive">like</a>
-        <a (click)="dislikeShop(shop)" class="negative">dislike</a>
+        <a (click)="likeShop(shop.id)" class="positive">like</a>
+        <a (click)="dislikeShop(shop.id)" class="negative">dislike</a>
       </div>
     </div>
 

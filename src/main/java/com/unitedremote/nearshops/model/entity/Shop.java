@@ -2,14 +2,14 @@ package com.unitedremote.nearshops.model.entity;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.hateoas.ResourceSupport;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 
 @Document(collection = "shops")
 public class Shop {
 
     @Id
-    public String Id;
+    public String id;
     private String picture;
     private String name;
     private String email;
@@ -18,11 +18,11 @@ public class Shop {
     private double distance;
 
     public String getId() {
-        return Id;
+        return id;
     }
 
     public void setId(String id) {
-        Id = id;
+        id = id;
     }
 
     public String getPicture() {

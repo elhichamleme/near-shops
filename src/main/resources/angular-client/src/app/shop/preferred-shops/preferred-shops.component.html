@@ -1,9 +1,11 @@
-<div class="container" infinite-scroll (scrolled)="moreShops()">
-  <div class="item"  *ngFor="let shop of favoriteShops">
+<app-navbar component="preferredShops">
+
+</app-navbar>
+<div class="container" >
+  <div class="item" *ngFor="let shop of preferredShopsArray">
     <span class="title">{{shop.name}}</span>
     <img src="{{shop.picture}}">
     <div class="control">
-      <a (click)="likeShop(shop)" class="positive">like</a>
       <a (click)="dislikeShop(shop)" class="negative">dislike</a>
     </div>
   </div>

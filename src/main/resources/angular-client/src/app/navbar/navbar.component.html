@@ -1,5 +1,5 @@
 <nav>
-  <a class="sign-out" href="">sign out</a>
-  <a href="">near shops</a>
-  <a [routerLink]="['/preferred-shops']">preferred shops</a>
+  <a (click)="signOut()" class="sign-out">sign out</a>
+  <a [routerLink]="['/near-shops']" [hidden]="component =='nearShops'">near shops</a>
+  <a [routerLink]="['/preferred-shops']" [hidden]="component =='preferredShops'">preferred shops</a>
 </nav>

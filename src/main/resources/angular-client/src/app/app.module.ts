@@ -7,7 +7,7 @@ import {AppComponent} from './app.component';
 import {NearShopsComponent} from './shop/near-shops/near-shops.component';
 import {LoginComponent} from './login/login.component';
 import {NavbarComponent} from './navbar/navbar.component';
-import {FavoriteShopsComponent} from './shop/favorite-shops/favorite-shops.component'
+import {PreferredShopsComponent} from './shop/preferred-shops/preferred-shops.component'
 import {TokenInterceptor} from "./auth/token.interceptor";
 
 
@@ -17,7 +17,7 @@ import {TokenInterceptor} from "./auth/token.interceptor";
     NearShopsComponent,
     LoginComponent,
     NavbarComponent,
-    FavoriteShopsComponent
+    PreferredShopsComponent
 
   ],
   imports: [
