@@ -27,3 +27,4 @@ Optional features
 
 Installation
 -----------------
+**database**
