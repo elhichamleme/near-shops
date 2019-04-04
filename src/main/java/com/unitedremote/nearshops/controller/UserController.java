@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -36,7 +37,7 @@ public class UserController {
     PasswordEncoder passwordEncoder;
 
     @PostMapping("/sign-in")
-    public ResponseEntity signIn(@RequestBody Map<String,String> credentials) {
+    public ResponseEntity signIn(@RequestBody Map<String, String> credentials) {
 
 
         try {
@@ -47,8 +48,7 @@ public class UserController {
             String token = jwtTokenProvider.createToken(
                     username, this.users.findByEmail(username)
                             .orElseThrow(() -> new UsernameNotFoundException("Username " + username + "not found"))
-                            .getRoles())
-                    ;
+                            .getRoles());
             Map<Object, Object> model = new HashMap<>();
             model.put("username", username);
             model.put("token", token);
@@ -60,22 +60,20 @@ public class UserController {
 
 
     @PostMapping("/create-user")
-    public  ResponseEntity createUser(@RequestBody Map<String, String>  credentials){
+    public ResponseEntity createUser(@RequestBody Map<String, String> credentials) {
         String username = credentials.get("username");
         String password = credentials.get("password");
 
         User user = new User();
         user.setEmail(username);
         user.setPassword(this.passwordEncoder.encode(password));
-        user.setRoles(Arrays.asList( "ROLE_USER"));
+        user.setRoles(Collections.singletonList("ROLE_USER"));
         this.users.save(user);
 
         return ResponseEntity.accepted().build();
 
 
     }
-
-
 
 
 }

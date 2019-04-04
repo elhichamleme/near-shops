@@ -9,12 +9,14 @@ import org.springframework.data.mongodb.core.aggregation.Aggregation;
 import org.springframework.data.mongodb.core.aggregation.AggregationResults;
 import org.springframework.data.mongodb.core.query.NearQuery;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 import static org.springframework.data.mongodb.core.aggregation.Aggregation.geoNear;
 import static org.springframework.data.mongodb.core.aggregation.Aggregation.newAggregation;
 
+@Repository
 public class ShopRepositoryImpl implements ShopRepositoryCustom {
 
 
@@ -30,18 +32,16 @@ public class ShopRepositoryImpl implements ShopRepositoryCustom {
     public List<Shop> shopsOrderedByDistance(double latitude, double longitude) {
 
 
-        NearQuery nearQuery = NearQuery.near(new Point(latitude,longitude));
-        Query query= new Query();
+        NearQuery nearQuery = NearQuery.near(new Point(latitude, longitude));
+        Query query = new Query();
         query.with(new Sort(Sort.Direction.ASC, "distance"));
         nearQuery.query(query);
         nearQuery.spherical(true);
-        Aggregation aggregation = newAggregation(geoNear(nearQuery,"distance"));
+        Aggregation aggregation = newAggregation(geoNear(nearQuery, "distance"));
 
         AggregationResults<Shop> aggregationResults = mongoTemplate.aggregate(aggregation, Shop.class, Shop.class);
 
         return aggregationResults.getMappedResults();
-
-
 
 
     }

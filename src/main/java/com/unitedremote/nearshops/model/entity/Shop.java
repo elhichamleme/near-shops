@@ -21,7 +21,7 @@ public class Shop {
     }
 
     public void setId(String id) {
-        id = id;
+        this.id = id;
     }
 
     public String getPicture() {
@@ -75,7 +75,7 @@ public class Shop {
     @Override
     public boolean equals(Object obj) {
 
-        return this.id.equals(((Shop)obj).getId());
+        return this.id.equals(((Shop) obj).getId());
     }
 
     @Override

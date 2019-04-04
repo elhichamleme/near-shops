@@ -10,7 +10,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @SpringBootApplication
 public class NearShopsApplication {
 
-    @Autowired PasswordEncoder passwordEncoder;
+    @Autowired
+    PasswordEncoder passwordEncoder;
+
     public static void main(String[] args) {
         SpringApplication.run(NearShopsApplication.class, args);
     }
