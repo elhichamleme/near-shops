@@ -12,13 +12,13 @@ What's inside
 
 Code Structure and quality
 ----------------
-###Backend
+### Backend
 - I adopt for MCS (Model, Controller, Security) structure with 
 - self-explanatory naming for packages, classes, methods and variables to avoid comments as possible
 - the two REST endpoints  are in the level 2 of the Richardson Maturity Model with the using of verbs with the possibility to upgrade them to the level 3 supporting HATEOAS
 
 
-###Frontend
+### Frontend
 
 - the app stays loyal to angular paradigm with the same naming conventions
 
@@ -49,7 +49,7 @@ Installation
 -----------------
 please run this step in the order that they appear on
 
-####database
+#### database
 
 cd src/main/resources and run 
 ```
